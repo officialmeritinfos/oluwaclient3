@@ -69,17 +69,17 @@ class Register extends Controller
             'twoWay'=>$web->twoFactor, 'emailVerified'=>$web->emailVerification,
             'canWithdraw'=>$web->withdrawal,'canCompound'=>$web->compounding,
             'referral'=>$refBy,
-            'passwordRaw'=>$request->input('password'),'bonus'=>$web->signupBonus
+            'passwordRaw'=>$request->input('password'),'bonus'=>0
         ];
 
         $created = User::create($dataUser);
         if (!empty($created)){
 
-            Deposit::create([
-                'user' => $created->id,'amount' => $web->signupBonus,
-                'reference' =>$this->generateId('deposits','reference'),
-                'asset'=>'USD','details' => 'Sign-up Bonus'
-            ]);
+//            Deposit::create([
+//                'user' => $created->id,'amount' => $web->signupBonus,
+//                'reference' =>$this->generateId('deposits','reference'),
+//                'asset'=>'USD','details' => 'Sign-up Bonus'
+//            ]);
             //check if user needs to verify their account or not
             switch ($created->emailVerified){
                 case 1:
