@@ -31,7 +31,8 @@ class Dashboard extends Controller
             'investments' => Investment::where('user',$user->id)->sum('amount'),
             'ongoingInvestments'=>Investment::where('user',$user->id)->where('status',4)->sum('amount'),
             'completedInvestments'=>Investment::where('user',$user->id)->where('status',1)->sum('amount'),
-            'totalDeposits'=>Deposit::where('user',$user->id)->where('status',1)->sum('amount'),
+            'totalDeposits'=>Deposit::where('user',$user->id)->sum('amount'),
+            'completedDeposits'=>Deposit::where('user',$user->id)->where('status',1)->sum('amount'),
             'cancelledInvestments'=>Investment::where('user',$user->id)->where('status',3)->sum('amount'),
             'web'=>$web,
             'latests'=>Deposit::where([

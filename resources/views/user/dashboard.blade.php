@@ -52,36 +52,84 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-today-card d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <span class="today">Account Balance</span>
-                            <h6>${{number_format($user->balance,2)}}</h6>
+                            <span class="today">Today's Earning</span>
+                            <h6>${{number_format($injected->userDailyEarning($user->id),2)}}</h6>
                         </div>
 
                         <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
+                            <img src="{{asset('dashboard/user/images/icon/discount.png')}}" alt="Images">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="today">Total Deposits</span>
+                            <h6>${{number_format($totalDeposits,2)}}</h6>
+                        </div>
+
+                        <div class="flex-shrink-0 align-self-center">
+                            <img src="{{asset('dashboard/user/images/icon/discount.png')}}" alt="Images">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-today-card d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <span class="today">Profit Balance</span>
-                            <h6>${{number_format($user->profit,2)}}</h6>
+                            <span class="today">Total Withdrawal</span>
+                            <h6>${{number_format($user->withdrawals,2)}}</h6>
                         </div>
 
                         <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
+                            <img src="{{asset('dashboard/user/images/icon/discount.png')}}" alt="Images">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <span class="today">Bonus Balance</span>
-                            <h6>${{number_format($user->bonus,2)}}</h6>
-                        </div>
 
-                        <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
+                <div class="col-lg-3 col-sm-6 col-md-3">
+                    <div class="active-single-item single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <p>
+                                <img src="{{asset('dashboard/user/images/icon/items.png')}}" alt="Images">
+                                Completed Deposit
+                            </p>
+                            <h6> ${{number_format($completedDeposits,2)}}</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-3">
+                    <div class="active-single-item single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <p>
+                                <img src="{{asset('dashboard/user/images/icon/items.png')}}" alt="Images">
+                                Completed Withdrawals
+                            </p>
+                            <h6> ${{number_format($withdrawals,2)}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-md-3">
+                    <div class="active-single-item single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <p>
+                                <img src="{{asset('dashboard/user/images/icon/discount-2.png')}}" alt="Images">
+                                Pending Deposits
+                            </p>
+                            <h6>${{number_format($pendingDeposit,2)}}</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-3">
+                    <div class="active-single-item single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <p>
+                                <img src="{{asset('dashboard/user/images/icon/discount-2.png')}}" alt="Images">
+                                Pending Withdrawals
+                            </p>
+                            <h6>${{number_format($pendingWithdrawal,2)}}</h6>
                         </div>
                     </div>
                 </div>
@@ -103,18 +151,6 @@
                     <div class="active-single-item single-today-card d-flex align-items-center">
                         <div class="flex-grow-1">
                             <p>
-                                <img src="{{asset('dashboard/user/images/icon/discount-2.png')}}" alt="Images">
-                                Pending Deposits
-                            </p>
-                            <h6>${{number_format($pendingDeposit,2)}}</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="active-single-item single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <p>
                                 <img src="{{asset('dashboard/user/images/icon/curser.png')}}" alt="Images">
                                 Completed Investments
                             </p>
@@ -123,45 +159,62 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="active-single-item single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <p>
-                                <img src="{{asset('dashboard/user/images/icon/discount-2.png')}}" alt="Images">
-                                Pending Withdrawals
-                            </p>
-                            <h6>${{number_format($pendingWithdrawal,2)}}</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="active-single-item single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <p>
-                                <img src="{{asset('dashboard/user/images/icon/items.png')}}" alt="Images">
-                                Completed Withdrawals
-                            </p>
-                            <h6> ${{number_format($withdrawals,2)}}</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-today-card d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <span class="today">Today's Earning</span>
-                            <h6>${{number_format($injected->userDailyEarning($user->id),2)}}</h6>
+                            <span class="today">Account Balance</span>
+                            <h6>${{number_format($user->balance,2)}}</h6>
                         </div>
 
                         <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/discount.png')}}" alt="Images">
+                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="today">Profit Balance</span>
+                            <h6>${{number_format($user->profit,2)}}</h6>
+                        </div>
+
+                        <div class="flex-shrink-0 align-self-center">
+                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="today">Referral Balance</span>
+                            <h6>${{number_format($user->refBal,2)}}</h6>
+                        </div>
+
+                        <div class="flex-shrink-0 align-self-center">
+                            <img src="{{asset('dashboard/user/images/icon/groop.png')}}" alt="Images">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-today-card d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="today">Bonus Balance</span>
+                            <h6>${{number_format($user->bonus,2)}}</h6>
+                        </div>
+
+                        <div class="flex-shrink-0 align-self-center">
+                            <img src="{{asset('dashboard/user/images/icon/user.png')}}" alt="Images">
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="row justify-content-center">
+
 
 
 
@@ -179,69 +232,33 @@
                 <!--    </div>-->
                 <!--</div>-->
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <span class="today">Referral Balance</span>
-                            <h6>${{number_format($user->refBal,2)}}</h6>
-                        </div>
 
-                        <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/groop.png')}}" alt="Images">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-today-card d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <span class="today">Total Withdrawal</span>
-                            <h6>${{number_format($user->withdrawals,2)}}</h6>
-                        </div>
 
-                        <div class="flex-shrink-0 align-self-center">
-                            <img src="{{asset('dashboard/user/images/icon/discount.png')}}" alt="Images">
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
     </div>
 
-    <div class="overview-area mb-4 mb-4">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                            {
-                                "width": "100%",
-                                "height": "610",
-                                "symbol": "BINANCE:BTCUSDT",
-                                "interval": "60",
-                                "timezone": "Etc/UTC",
-                                "theme": "light",
-                                "style": "1",
-                                "locale": "en",
-                                "allow_symbol_change": true,
-                                "calendar": false,
-                                "support_host": "https://www.tradingview.com"
-                            }
-                        </script>
-                    </div>
-                    <!-- TradingView Widget END -->
-                </div>
 
-            </div>
-        </div>
-    </div>
     <div class="overview-area">
         <div class="container-fluid">
             <div class="row">
+
+                <div class="col-lg-5">
+                    <div class="active-user">
+                        <div id="stacked-column-chart-2"></div>
+
+                        <div class="active-user-content-wrap">
+                            <h6 class="active-user-content">
+                                Investment Overview
+                                <i class="ri-arrow-up-line"></i>
+                            </h6>
+
+
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-7">
                     <div class="chart-wrap">
                         <div class="sales-overview d-flex align-items-center">
@@ -270,25 +287,40 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5">
-                    <div class="active-user">
-                        <div id="stacked-column-chart-2"></div>
-
-                        <div class="active-user-content-wrap">
-                            <h6 class="active-user-content">
-                                Investment Overview
-                                <i class="ri-arrow-up-line"></i>
-                            </h6>
-
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
+<div class="overview-area mb-4 mb-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container" style="height:100%;width:100%">
+                    <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+                            "width": "100%",
+                            "height": "610",
+                            "symbol": "BINANCE:BTCUSDT",
+                            "interval": "60",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "en",
+                            "allow_symbol_change": true,
+                            "calendar": false,
+                            "support_host": "https://www.tradingview.com"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
 
+        </div>
+    </div>
+</div>
 
     <div class="latest-transaction-area">
         <div class="container-fluid">
